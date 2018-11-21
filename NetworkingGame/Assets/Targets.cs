@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Targets : MonoBehaviour {
 
-    public float delay = 1f;
+    public float delay = .2f;
     public GameObject cube;
     // Use this for initialization
     void Start() {
