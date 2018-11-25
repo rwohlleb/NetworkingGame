@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Threading;
 using System.IO;
+using System;
 
 public class Targets : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class Targets : MonoBehaviour
     public string ip = "";
     public bool gameStarted = false;
     Client client;
+    public int port = 0;
 
     // Use this for initialization
     void Start()
@@ -47,7 +49,7 @@ public class Targets : MonoBehaviour
         playerOne.score = "0";
         playerTwo.score = "0";
         ip = GetIP();
-        client = new Client(ip, 800);
+        client = new Client(ip, port);
         client.OnClientReceived += DisplayScore;
         client.Start();
         client.Send("ready");
@@ -171,7 +173,9 @@ public class Targets : MonoBehaviour
         StreamReader reader = new StreamReader(dir + @"/Assets/Client.txt");
         string ipAdd = reader.ReadLine();
         reader.Close();
-        return ipAdd;
+        var arr = ipAdd.Split(':');
+        this.port = Convert.ToInt32(arr[1]);
+        return arr[0];
     }
 
     void UpdateScore()
@@ -199,6 +203,6 @@ public class Targets : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(cube, new Vector3(Random.Range(-15, 25), 10, 9), Quaternion.identity);
+        Instantiate(cube, new Vector3(UnityEngine.Random.Range(-15, 25), 10, 9), Quaternion.identity);
     }
 }
