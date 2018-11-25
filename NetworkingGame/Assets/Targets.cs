@@ -96,7 +96,7 @@ public class Targets : MonoBehaviour
                 });
                 task.Start();
             }
-            if (playerTwo.score.CompareTo(playerTwo.score) > 0)
+            if (playerTwo.score.CompareTo(playerOne.score) > 0)
             {
                 Task task = new Task(() =>
                 {
@@ -183,6 +183,7 @@ public class Targets : MonoBehaviour
         Task task = new Task(() =>
         {
             this.client.Send(ip);
+            
         });
         task.Start();
     }
