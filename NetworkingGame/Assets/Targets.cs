@@ -6,6 +6,7 @@ using ClientHelper;
 using System.Threading.Tasks;
 using System.Net;
 using System.Threading;
+using System.IO;
 
 public class Targets : MonoBehaviour
 {
@@ -166,17 +167,11 @@ public class Targets : MonoBehaviour
 
     public string GetIP()
     {
-        string temp = "";
-        var host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (var ip in host.AddressList)
-        {
-            if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-            {
-                temp = ip.ToString();
-                return temp;
-            }
-        }
-        return null;
+        string dir = Directory.GetCurrentDirectory();
+        StreamReader reader = new StreamReader(dir + @"/Assets/Client.txt");
+        string ipAdd = reader.ReadLine();
+        reader.Close();
+        return ipAdd;
     }
 
     void UpdateScore()
