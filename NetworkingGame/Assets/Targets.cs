@@ -180,7 +180,11 @@ public class Targets : MonoBehaviour
 
     void UpdateScore()
     {
-        this.client.Send(ip);
+        Task task = new Task(() =>
+        {
+            this.client.Send(ip);
+        });
+        task.Start();
     }
 
     void DisplayScore(object sender, string data)
