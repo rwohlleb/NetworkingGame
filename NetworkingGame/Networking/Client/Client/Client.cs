@@ -36,7 +36,7 @@ namespace ClientHelper
 
         public int Send(string data)
         {
-            return socket.Send("192.168.1.68", 1000, data);
+            return socket.Send("192.168.0.2", 1000, data);
         }
 
         private void OnDataReceived(object sender, string data)
