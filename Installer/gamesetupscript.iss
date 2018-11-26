@@ -33,11 +33,11 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "E:\TargetShooter\NetworkingGame\test5\NetworkingGame.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\TargetShooter\NetworkingGame\test5\UnityPlayer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\TargetShooter\NetworkingGame\test5\MonoBleedingEdge\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "E:\TargetShooter\NetworkingGame\test5\NetworkingGame_Data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "E:\TargetShooter\NetworkingGame\test5\Assets\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\TargetShooter\NetworkingGame\final\NetworkingGame.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\TargetShooter\NetworkingGame\final\UnityPlayer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\TargetShooter\NetworkingGame\final\MonoBleedingEdge\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\TargetShooter\NetworkingGame\final\NetworkingGame_Data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "E:\TargetShooter\NetworkingGame\final\Assets\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

@@ -143,7 +143,7 @@ public class Targets : MonoBehaviour
                 InvokeRepeating("Spawn", 0, delay);
                 Task timer = new Task(() =>
                 {
-                    Thread.Sleep(10000);
+                    Thread.Sleep(30000);
                     this.killInvoke = true;
                 });
                 this.scoreboard = Instantiate(scoreboard, new Vector3(5f, 6.9f, 8.5f), Quaternion.identity);
