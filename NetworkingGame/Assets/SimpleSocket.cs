@@ -34,9 +34,11 @@ namespace SocketHelper
             isConnected = true;
             Socket socket = this.protocolType.Equals("TCP") ? new Socket(SocketType.Stream, ProtocolType.Tcp) : new Socket(SocketType.Dgram, ProtocolType.Udp);
             IPHostEntry entry = Dns.GetHostEntry(address);
-            IPEndPoint localEP = new IPEndPoint(entry.AddressList[0], port);
+            IPAddress ipAddress = entry.AddressList.Where(a => a.ToString().Equals(address)).FirstOrDefault();
+            IPEndPoint localEP = new IPEndPoint(ipAddress, port);
             socket.NoDelay = true;
             socket.Bind(localEP);
+
             socket.Listen(10);
             while (isConnected)
             {
@@ -59,9 +61,11 @@ namespace SocketHelper
                 Socket socket = this.protocolType.Equals("TCP") ? new Socket(SocketType.Stream, ProtocolType.Tcp) : new Socket(SocketType.Dgram, ProtocolType.Udp);
                 socket.NoDelay = true;
                 byte[] data = Encoding.ASCII.GetBytes(message);
-                IPEndPoint endPoint = new IPEndPoint(Dns.GetHostEntry(address).AddressList[0], port);
-                socket.Connect(endPoint);
-                socket.SendTo(data, endPoint);
+                //IPEndPoint endPoint = new IPEndPoint(Dns.GetHostEntry(address).AddressList[0], port);
+                //socket.Connect(endPoint);
+                //socket.SendTo(data, endPoint);
+                socket.Connect(address, port);
+                socket.Send(data);
                 socket.Close();
 
             }
